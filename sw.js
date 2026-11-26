@@ -1,4 +1,4 @@
-const CACHE='vaccination-ch-premium-1.5-pwa-camera-2';
+const CACHE='vaccination-ch-premium-1.6-ocr-1';
 const ASSETS=['./index.html','./scan.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('vaccination-ch-premium-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
